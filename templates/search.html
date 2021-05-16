@@ -1,0 +1,68 @@
+{%extends 'base.html'%}
+{% block body_block%}
+<!--
+<script>
+
+    function add(){
+        var food_name=document.getElementsByTagName("he").value;
+        var e = document.getElementById("select_food");
+        var ans=e.options[e.selectedIndex].value ; 
+        var text=e.options[e.selectedIndex].text;
+        var table=document.getElementsByTagName("table")[0];
+        var newrow=table.insertRow(table.rows.length);
+        var cel1=newrow.insertCell(0);
+        var cel2=newrow.insertCell(1);
+        cel1.innerHTML=food_name;
+        cel2.innerHTML=text;
+}
+</script>
+-->
+<style>
+    #select_food {margin-top: 1.5em;}
+    #select_food {margin-bottom: 1.5em;}
+
+
+    </style>
+
+<div class="container my-3">
+    
+    
+    
+    <h2>Search Results:</h2>
+    <br>
+    {%if allFood|length < 1 %}
+    <h4>No search results </h4>
+    Your search query  <b>{{query}}</b>  did not match any food item.
+    {%endif%}
+    {% for items in  allFood %}
+    
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+        
+            <h3 id="he" value="{{items.food_name}}" class="mb-0">{{items.food_name}}</h3>
+            <p class="card-text mb-auto">{{items.description}}</p>
+              <div class='my-2'>
+                <a class="btn btn-primary" href="{% url 'home_app:add_item1' items.food_name %}">Consume</a>
+                <a class="btn btn-primary" href="{% url 'home_app:details' items.food_name %}">Details</a>   
+                <a class="btn btn-primary" href="#">Buy</a> 
+                </div>
+            </div>
+            
+        
+        <div class="col-auto d-none d-lg-block">
+            <svg width="200" height="200"
+            xmlns="http://www.w3.org/2000/svg">
+            <image href="{{items.link_of_image}}" height="200" width="200"/>
+          </svg>
+        </div>
+        </div>
+        {%endfor%}
+        
+    
+</div>
+   
+    
+    
+    </div>
+ {% endblock %}
+ 

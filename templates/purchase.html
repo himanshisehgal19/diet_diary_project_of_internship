@@ -1,0 +1,165 @@
+{%extends 'base.html'%}
+{% block body_block%}
+<script>
+    var dict ={}
+</script>
+<br>
+<hr>
+<p ><h1 class="text-center">PURCHASED ITEMS</h1></p>
+<hr>
+<br><br>
+{% if info %}
+<table class="table">
+    <tr>
+        <th scope="col">
+            Food Name
+        </th>
+        <th scope="col">
+            Calories
+        </th>
+        <th scope="col">
+            Protein
+        </th>
+        <th scope="col">
+            Fats
+        </th>
+        <th scope="col">
+            Carbohydrates
+        </th>
+        <th scope="col">
+            Quantity
+        </th>
+        <th scope="col">
+            Delete
+        </th>
+
+    </tr>
+    
+    {% for tb in info %}
+    
+    <tr>
+        <td>
+            {{tb.food_name}}
+        </td>
+        <td>
+            {{tb.calories}}
+        </td>
+        <td>
+            {{tb.protein}}
+        </td>
+        <td>
+            {{tb.fats}}
+        </td>
+        <td>
+            {{tb.carbohydrates}}
+        </td>
+        <td>
+            {{tb.quantity}}
+        </td>
+     
+        <td>
+            <button id = {{tb.food_id}} onclick="delete_Row(this);" class="btn btn-primary">X</button>
+            
+        </td>
+    </tr>
+    
+   
+    {% endfor %}
+    
+</table>
+<br>
+<a class="btn btn-primary" href="{% url 'home_app:save_purchase' %}">Confirm</a>
+{% else %}
+<div class="text-center">
+<p><h4 >No items purchased!!<i class="far fa-frown-open x"></i></h4></p>
+<a href="{%url 'FoodIndex:home'%}">Go To Home</a>
+{% endif %} 
+<br>
+<br>
+<br>
+<p><h3>Item not found?</h3></p>
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">DETAILS</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form  method="POST">
+                        {% csrf_token %}
+                    <div class="modal-body mx-3">
+                     
+                        <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Enter food name</label>
+                        <input type="Text" class="form-control validate"  id="selectedItem" name="selectedItem" placeholder="Eg:Dosa">
+                        
+                        </div>
+                        
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter mfg code</label>
+                            <input type="Text" class="form-control validate"  id="mfg" name="mfg" >
+                            
+                            </div>
+
+                        <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Enter Food Id</label>
+                        <input type="text" class="form-control validate" id="fd_id" name="fd_id" placeholder="Eg:00">
+                        
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter Quantity</label>
+                            <input type="number" class="form-control validate"  id="quantity" name="quantity">
+                            
+                            </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter calorie</label>
+                            <input type="Text" class="form-control validate"  id="cal" name="cal">
+                                
+                         </div>
+
+                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter protein</label>
+                            <input type="Text" class="form-control validate"  id="protin" name="protin">
+                                
+                         </div>
+
+                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter fat</label>
+                            <input type="Text" class="form-control validate"  id="fat" name="fat">
+                                
+                         </div>
+
+                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Enter carbohydrates</label>
+                            <input type="Text" class="form-control validate"  id="carbs" name="carbs">
+                                
+                         </div>
+                        
+                        
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <input type="submit" name="submit" id="submit" value="Confirm" class="btn btn-primary" formaction="{% url 'home_app:confirm_purchase2' %}">
+                    </div>
+                </form>
+                    </div>
+                </div>
+                </div>
+         
+
+<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginForm" id="{{items.food_name}}" onclick="set_val(this);">Add Item Manually</a>
+</div>
+
+<script>
+    function delete_Row(what)
+    {
+        var m = what.id;
+        document.location.href="{% url 'home_app:delete_purchase' 1234 %}".replace(/1234/, m.toString());
+    }
+</script>
+
+
+
+{% endblock %}

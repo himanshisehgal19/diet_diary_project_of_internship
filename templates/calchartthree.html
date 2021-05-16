@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Barchart</title>
+    <style>
+      select {
+			background-color: whitesmoke;
+			border: none;
+			color: dodgerblue;
+			padding: 15px 230px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+
+
+		}
+    input[type=submit] {
+			width: 20%;
+			background-color: #ddd;
+			padding: 10px 15px;
+			margin: 4px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-right: 15rem;
+			color: lavenderblush;
+			background-color: dodgerblue;
+			font-size: 2rem;
+      margin-left: 20rem;
+		}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Food</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{%url 'FoodIndex:home'%}">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:chart'%}">Nutrition Analysis </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:calchartthree'%}">Calorie Analysis </a>
+              </li>
+
+    
+            </ul>
+           
+          </div>
+          <a href="{% url 'home_app:deletetemp' %}"><button type="button" class="btn btn-success mr-2">Logout</button></a>
+        </div>
+      </nav>
+      <br>
+      <br>
+
+    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 3rem;text-align: center;color: dodgerblue;">Date Wise Calorie Analysis <center></center></h3>
+    <hr/>
+    <center>
+      <form method="POST"  action="{%url 'home_app:calchartthree'%}">
+        {%csrf_token%}
+        <br>
+        <br>
+      
+        <p>Select Number of days For analysis</p>
+        <select name= "genx" method="GET">
+          <option value= "1" SELECTED>1</option>
+            <option value= "2" SELECTED>2</option>
+            <option value= "3" SELECTED>3</option>
+            <option value= "4" SELECTED>4</option>
+            <option value= "5" SELECTED>5</option>
+            <option value= "6" SELECTED>6</option>
+            <option value= "7" SELECTED>7</option>
+            <option value= "8" SELECTED>8</option>
+            <option value= "9" SELECTED>9</option>
+            <option value= "10" SELECTED>10</option>
+            <option value= "11" SELECTED>11</option>
+            <option value= "12" SELECTED>12</option>
+            <option value= "13" SELECTED>13</option>
+            <option value= "14" SELECTED>14</option>
+            <option value= "15" SELECTED>15</option>
+            <option value= "16" SELECTED>16</option>
+            <option value= "17" SELECTED>17</option>
+            <option value= "18" SELECTED>18</option>
+            <option value= "19" SELECTED>19</option>
+            <option value= "20" SELECTED>20</option>
+            <option value= "21" SELECTED>21</option>
+            <option value= "22" SELECTED>22</option>
+            <option value= "23" SELECTED>23</option>
+            <option value= "24" SELECTED>24</option>
+            <option value= "25" SELECTED>25</option>
+            <option value= "26" SELECTED>26</option>
+            <option value= "27" SELECTED>27</option>
+            <option value= "28" SELECTED>28</option>
+            <option value= "29" SELECTED>29</option>
+            <option value= "30" SELECTED>30</option>
+  
+  
+  
+            <option SELECTED>Select </option>
+          </select>
+       
+          
+          <br>
+          <br>
+          <br>
+          <center>	<input type="submit" > </center>
+        
+        </form>
+    
+      </center>
+      
+    <img src="./media/barchartcalthreeey.png"  height="500" width="1000"/>
+    <br>
+    <h1 style="margin-left: 30rem;">Date</h1>
+</body>
+</html>

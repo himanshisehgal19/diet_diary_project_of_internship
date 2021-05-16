@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background: linear-gradient(to left, #a21eee, #575afc);
+        }
+
+        .container-fluid {
+            width: 50vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+        }
+
+        #main-card {
+            background: #191919;
+            height: 400px;
+            width: 500px;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        #title {
+            font-size: 65px;
+            font-weight: 400;
+            text-align: center;
+            color: rgb(210, 236, 247);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .btn {
+            font-size: 30px;
+            width: 70%;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <div class="container-fluid">
+        <div id="main-card">
+            <h1 id="title">Login As</h1>
+            <br><br><br>
+            <a href="user_login"><button class="btn btn-outline-info" type="submit" id="option1"
+                        formaction="user_login">User</button></a>
+            
+            <br>
+            <br>
+            <a href="admin_login_" target="_new"><button class="btn btn-outline-warning" type="submit" id="option2"
+                        formaction="admin_login_">Admin</button></a>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

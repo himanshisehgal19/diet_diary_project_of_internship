@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Barchart</title>
+    <style>
+      select {
+			background-color: whitesmoke;
+			border: none;
+			color: dodgerblue;
+			padding: 15px 230px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+
+
+		}
+    input[type=submit] {
+			width: 20%;
+			background-color: #ddd;
+			padding: 10px 15px;
+			margin: 4px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-right: 15rem;
+			color: lavenderblush;
+			background-color: dodgerblue;
+			font-size: 2rem;
+      margin-left: 20rem;
+		}
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Food</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{%url 'FoodIndex:home'%}">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:chart'%}">Nutrition Analysis </a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:calchartthree'%}">Calorie Analysis </a>
+              </li>
+             
+
+    
+            </ul>
+           
+          </div>
+          <a href="{% url 'home_app:deletetemp' %}"><button type="button" class="btn btn-success mr-2">Logout</button></a>
+        </div>
+      </nav>
+      <br>
+      <br>
+    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 3rem;text-align: center;color: dodgerblue;">Protein ,Carbohydrate, Fats and Calorie analysis in your todays diet <center></center></h3>
+    <hr/>
+    <form method="POST"  action="{%url 'home_app:chart'%}">
+      {%csrf_token%}
+      <br>
+      <br>
+    
+  <center>
+      <p>Meal Type</p>
+      <select name= "gens" method="GET">
+        <option value= "all" SELECTED>ALL</option>
+          <option value= "Breakfast" SELECTED>Breakfast</option>
+          <option value= "Lunch" SELECTED>Lunch</option>
+          <option value= "Snacks" SELECTED>Snacks</option>
+          <option value= "Dinner" SELECTED>Dinner</option>
+          <option SELECTED>Select </option>
+        </select>
+        
+        <p>Nutrition</p>
+      <select name= "charts" method="GET">
+          
+          <option value= "calories" SELECTED>Calories</option>
+          <option value= "nutrition" SELECTED>Nutrition</option>
+          
+          <option SELECTED>Select </option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <center>	<input type="submit" > </center>
+        <br>
+        <img src="./media/graph/brxxxy.png"  height="500" width="1000"/>
+      </form>
+      
+      
+    
+</body>
+</html>

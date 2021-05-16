@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<title>Calorie Counter</title>
+	<style>
+		input[type=text], input[type=number] {
+    width: 80%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+	border-radius: 4px;
+    
+    
+}
+td{
+	width: 40rem;
+}
+input[type=submit]{
+    width: 20%;
+    background-color: #ddd;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	margin-right: 15rem;
+	color: lavenderblush;
+	background-color: dodgerblue;
+	font-size: 2rem;
+}
+.btnx{
+  width: 20%;
+    background-color: #ddd;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	margin-right: 15rem;
+	color: lavenderblush;
+	background-color: dodgerblue;
+	font-size: 2rem;
+}
+h1{
+
+	
+	font-size: 2rem;
+
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 2.5rem;
+	color: mintcream;
+}
+pre{
+	font-size: 2.3rem;
+	
+	color:dodgerblue;
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+center{
+	margin-right:5rem ;
+}
+img{
+	width:100%;
+	height: 20rem;
+}
+select{
+background-color: whitesmoke;
+  border: none;
+  color:dodgerblue;
+  padding: 15px 230px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+
+
+}
+p{
+	font-size:1.5rem;
+	
+	
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+		</style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Food</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{%url 'FoodIndex:home'%}">Home</a>
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link" href="admin_signup">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:table'%}">Transaction Table</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:calories'%}">Calories Counter</a>
+
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'home_app:chart'%}">Analysis </a>
+              </li>
+    
+            </ul>
+           
+          </div>
+          <a href="{% url 'home_app:deletetemp' %}"><button type="button" class="btn btn-success mr-2">Logout</button></a>
+        </div>
+      </nav>
+      <br>
+   
+	<img src="https://d1cbe14be5894c8dcc3d-8a742a0d46bf003746b2a98abb2fa3cf.ssl.cf2.rackcdn.com/wp-content/uploads/2017/10/best-calorie-calculator-1.jpg">
+<!--<pre>
+	Diabetes mellitus, commonly known as diabetes, is a metabolic disease that causes high blood sugar. 
+	The hormone insulin moves sugar from the blood into your cells to be stored or used for energy. 
+	With diabetes, your body either doesn't make enough insulin or can't effectively use the insulin it does make.</pre>-->
+
+
+
+<form method="POST"  action="{%url 'home_app:calories'%}">
+    {%csrf_token%}
+    <br>
+    <br>
+    <center>
+
+
+			<p>Enter Your Weight</p>
+	<input type ="text" name ="weigh" placeholder="Your weight" >
+
+</center>
+<center>
+
+<!--<input type ="text" name ="vary" placeholder=" Male (if yes enter 1 else enter 0)">-->
+    <p>Gender</p>
+    <select name= "gen" method="GET">
+        
+        <option value= "1" SELECTED>Male</option>
+        <option value= "0.9" SELECTED>Female</option>
+        <option SELECTED>Select </option>
+      </select>
+
+</center>
+	
+	<br>
+    <br>
+	<center>
+
+
+	<p>Daily Activity level</p>
+	<select name= "level" method="GET" >
+		
+		<option value= "1.3" SELECTED>Typical office job (sitting , studying , little walking through out the day</option>
+		<option value= "1.55" SELECTED>Any job where you mostly stand or walk (teaching,shop/lab work some walking through out the day</option>
+        <option value= "1.65" SELECTED> Jobs requiring physical activity (landscaping,cleaning,maintance,jogging/biking/ working out 2hrs a day</option>
+        <option value= "1.80" SELECTED>Heavy mannual labor (construction,dancer,athlete,physical activity min. 4hr per day</option>
+        <option value= "2.0" SELECTED>Moderate to hard physical activity min 8 hours/day</option>
+		<option SELECTED>     Select The Option that belongs To Your  Daily Activity Routine  </option>
+	  </select>
+    </center>
+	
+
+
+<br><br>
+<center>	<input type="submit" > </center>
+</form>
+
+
+
+<p>Your total calorie consumption per day should be:</p>
+<h1 style="color: dodgerblue;">{{calculated}}</h1>
+
+<p>Your total actual calorie consumption per day is:</p>
+<h1 style="color: dodgerblue;">{{consumed}}</h1>
+<p>{{detail}}</p>
+<center><a  href="{%url 'home_app:chart'%}"><button class="btnx">Analysis</button></a></center>
+
+
+</body>
+</html>

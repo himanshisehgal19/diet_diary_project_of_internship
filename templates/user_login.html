@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>User Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color:white;
+          
+        }
+
+        .container-fluid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: none
+        }
+
+        .text-muted {
+            color: cornflowerblue;
+        }
+
+        .box {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 500px;
+            padding: 40px;
+            background-color: ghostwhite;
+            text-align: center;
+            transition: 0.25s;
+            border-radius: 25px;
+        }
+
+        .box input[type="email"],
+        .box input[type="password"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 10px 10px;
+            width: 250px;
+            outline: none;
+            color: dodgerblue;
+            border-radius: 24px;
+            transition: 0.25s
+        }
+
+        .box h1 {
+            color:dodgerblue;
+            text-transform: uppercase;
+            font-weight: 500
+        }
+
+        .box input[type="text"]:focus,
+        .box input[type="password"]:focus {
+            width: 300px;
+            border-color: #2ecc71
+        }
+
+        .box input[type="submit"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: dodgerblue;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer
+        }
+
+        .box input[type="submit"]:hover {
+            background: #2ecc71
+        }
+
+        .forgot {
+            text-decoration: underline
+        }
+
+        ul.social-network {
+            list-style: none;
+            display: inline;
+            margin-left: 0 !important;
+            padding: 0
+        }
+
+        ul.social-network li {
+            display: inline;
+            margin: 0 5px
+        }
+
+        .social-network a.icoFacebook:hover {
+            background-color: #3B5998
+        }
+
+        .social-network a.icoTwitter:hover {
+            background-color: #33ccff
+        }
+
+        .social-network a.icoGoogle:hover {
+            background-color: #BD3518
+        }
+
+        .social-network a.icoFacebook:hover i,
+        .social-network a.icoTwitter:hover i,
+        .social-network a.icoGoogle:hover i {
+            color: #fff
+        }
+
+        a.socialIcon:hover,
+        .socialHoverClass {
+            color: #44BCDD
+        }
+
+        .social-circle li a {
+            display: inline-block;
+            position: relative;
+            margin: 0 auto 0 auto;
+            border-radius: 50%;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            font-size: 20px
+        }
+
+        .social-circle li i {
+            margin: 0;
+            line-height: 50px;
+            text-align: center
+        }
+
+        .social-circle li a:hover i,
+        .triggeredHover {
+            transform: rotate(360deg);
+            transition: all 0.2s
+        }
+
+        .social-circle i {
+            color: #fff;
+            transition: all 0.8s;
+            transition: all 0.8s
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box" method="POST">
+                        {% csrf_token %}
+
+                        <h1>Login</h1>
+                        <p class="text-muted"> Please enter your Email and Password!</p>
+                        {% include 'messages.html' %}
+                        <input type="email" name="email" placeholder="User Email">
+                        <input type="password" name="pwd" placeholder="Password">
+
+                        <p>
+                            <span>
+                                <input type="submit" name="login" value="Login" formaction="home">
+                                <input type="submit" name="login" value="Admin Login" formaction="admin_signup">
+
+                            </span>
+                            
+                        <p class="text-muted"> New User?</p>
+                        <span>
+                            <input type="submit" name="signup" value="Sign Up" formaction="user_signup">
+                        </span>
+                        </p>
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i
+                                            class="fab fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

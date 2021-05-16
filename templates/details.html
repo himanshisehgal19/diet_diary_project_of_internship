@@ -1,0 +1,55 @@
+
+{%extends 'base.html'%}
+{% block body_block%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Food Details</title>
+
+  </head>
+  <body>
+    {% if info %}
+        {% for val in info%}
+            {% if val.food_name == food_name %}
+            <div class="position-absolute top-50 start-50 translate-middle">
+         
+              <div class="card" style="width: 23rem;">
+                  <img class="card-img-top" src="{{val.link_of_image}}" alt="Card image cap" height="220" width="220">
+                  <div class="card-body">
+                    <h5 class="card-title">{{val.food_name}}</h5>
+                    <p class="card-text">Nutritional Facts:</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Calories: {{val.calories}}</li>
+                    <li class="list-group-item">Protien : {{val.protein}}</li>
+                    <li class="list-group-item">Fat : {{val.fats}}</li>
+                    <li class="list-group-item">Carbohydrates : {{val.carbohydrates}}</li>
+                  </ul>
+                  <div class="card-body">
+                      {% if val.link_of_recipie %} 
+                      <a class="btn btn-primary" href="#" role="button">Recipe</a> 
+                      {% endif %}
+                      {% if val.purchasing_link %}
+                      <a class="btn btn-primary" href="#" role="button">Buy</a>
+                      {% endif %}
+                  </div>
+                </div>
+              </div>
+       
+        
+            
+        </div>
+            
+            
+            
+            {% endif %}
+        {% endfor %}
+            
+    {% endif %}
+    
+  </body>
+</html>
+
+{% endblock %}

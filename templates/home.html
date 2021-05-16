@@ -1,0 +1,105 @@
+{%extends 'base.html'%}
+{% block body_block%}
+<div class="container">
+    <div class="jumbotron my-3">
+      <h1 class="display-4">Food Types</h1>
+      <p class="lead">Choose your food type</p>
+      <hr class="my-4">
+      </div>
+    </div>
+    <h2>Popular Food</h2>
+    <div class="container">
+     
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                
+                <h3 class="mb-0">North Indian</h3>
+                <p class="card-text mb-auto">North Indian curries usually have thick, moderately spicy and creamy gravies. The use of dried fruits and nuts is fairly common even in everyday foods. Dairy products like milk, cream, cottage cheese, ghee (clarified butter) and yoghurt play an important role in the cooking of both savory and sweet dishes.</p>
+              <div class='my-2'>
+                
+               <a href="{%url 'FoodIndex:north'%}"><button class='btn btn-primary'>Click</button></a>
+              </div>
+            </div>
+         <div class="col-auto d-none d-lg-block">
+          <svg width="250" height="250"
+          xmlns="http://www.w3.org/2000/svg">
+          <image href="https://www.livemorezone.com/wp-content/uploads/north-indian-food-livemorezone-dbs.jpg" height="250" width="250"/>
+        </svg>                
+      </div>     
+            </div >
+
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                
+                <h3 class="mb-0">South Indian</h3>
+                <p class="card-text mb-auto">The similarities among the five states' cuisines include the presence of rice as a staple food, the use of lentils and spices, dried red chilies and fresh green chilies, coconut, and native fruits and vegetables including tamarind, plantain, snake gourd, garlic, and ginger.</p>
+              <div class='my-2'>
+        
+                
+               <a href="{%url 'FoodIndex:south'%}"><button class='btn btn-primary'>Click</button></a>
+              </div>
+            </div>
+         <div class="col-auto d-none d-lg-block">
+          <svg width="250" height="250"
+          xmlns="http://www.w3.org/2000/svg">
+          <image href="https://www.southindiancuisines.com/wp-content/uploads/2019/12/south-indian-foodsn-780x405.jpg" height="250" width="250"/>
+        </svg>                
+      </div>     
+            </div >
+          
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                
+                <h3 class="mb-0">Continental</h3>
+                <p class="card-text mb-auto">Continental food refers to dishes made and consumed in the European countries. Dishes of French, Spanish and Italian cuisine fall under the category of 'Continental food'. The key specialty of this food is, they concentrate more on ingredients like olive oil, wine, herbs and minimal spices.</p>
+              <div class='my-2'>
+               
+                
+               <a href="{%url 'FoodIndex:continental'%}"><button class='btn btn-primary'>Click</button></a>
+              </div>
+            </div>
+         <div class="col-auto d-none d-lg-block">
+          <svg width="250" height="250"
+          xmlns="http://www.w3.org/2000/svg">
+          <image href="https://images.freekaamaal.com/post_images/1612770250.png" height="250" width="250"/>
+        </svg>                
+      </div>     
+            </div >
+          
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                
+                <h3 class="mb-0">Chinese</h3>
+                <p class="card-text mb-auto">A Chinese meal is consisted of two parts: staple food, normally made of rice, noodles or steamed buns, and ts'ai, vegetable and meat dishes.</p>
+              <div class='my-2'>
+                
+               <a href="{%url 'FoodIndex:chinese'%}"><button class='btn btn-primary'>Click</button></a>
+              </div>
+            </div>
+         <div class="col-auto d-none d-lg-block">
+          <svg width="250" height="250"
+          xmlns="http://www.w3.org/2000/svg">
+          <image href="https://i.ndtvimg.com/i/2018-02/chinese-food_240x180_71518092408.jpg?downsize=200:155" height="250" width="250"/>
+        </svg>                
+      </div>     
+            </div >
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                
+                <h3 class="mb-0">Desserts</h3>
+                <p class="card-text mb-auto">The term dessert can apply to many confections, such as biscuits, cakes, cookies, custards, gelatins, ice creams, pastries, pies, puddings, sweet soups, tarts and fruit salad. Fruit is also commonly found in dessert courses because of its naturally occurring sweetness.</p>
+              <div class='my-2'>
+                
+               <a href="{%url 'FoodIndex:dessert'%}"><button class='btn btn-primary'>Click</button></a>
+              </div>
+            </div>
+         <div class="col-auto d-none d-lg-block">
+          <svg width="250" height="250"
+          xmlns="http://www.w3.org/2000/svg">
+          <image href="https://c.ndtvimg.com/2020-04/chd4rs3g_dessert_625x300_07_April_20.jpg" height="250" width="250"/>
+        </svg>                
+      </div>     
+            </div >
+
+            </div>
+{%endblock%}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f491ae5aed.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <title>Food Diary</title>
+  <style>
+    span{
+      background-color: red;
+    }
+    .icon:hover{
+      transform: scale(1.2);
+      text-shadow: 0 10px 30px green;
+    }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Food</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%url 'FoodIndex:home'%}">Home</a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'home_app:table'%}">Transaction Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'home_app:purchase'%}">Purchased Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'home_app:chart'%}">Calories Counter</a>
+          </li>
+       
+            
+        
+
+        </ul>
+        <a class="nav-link" name= "icon" href="{%url 'home_app:purchase'%}" data-trigger="hover" data-toggle="popover" title="{{items_left}} item(s) in transaction table" >
+          <div class="icon">
+            <i class="fas fa-shopping-cart fa-2x faa-horizontal" style="color:#91c788; "></i><span class="badge badge-info">{{purchase_left}}</span>
+          </div>
+          
+        </a>
+        <a class="nav-link" name= "icon" href="{%url 'home_app:table'%}" data-trigger="hover" data-toggle="popover" title="{{items_left}} item(s) in transaction table" >
+          <div class="icon">
+            <i class="fas fa-utensils fa-2x faa-horizontal" style="color:#91c788; "></i><span class="badge badge-info">{{items_left}}</span>
+          </div>
+          
+        </a>
+        <form method="GET" action="{%url 'FoodIndex:search'%}" class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+            id="query" list="foodlist">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+
+        </form>
+      </div>
+      <a href="{% url 'home_app:deletetemp' %}"><button type="button" class="btn btn-success mr-2">Logout</button></a>
+    </div>
+    <a class="nav-link" name= "icon" href="{%url 'FoodIndex:profile_page'%}" data-trigger="hover" data-toggle="popover" title="View Profile" >
+      <div class="icon">
+        <i class="fas fa-user-circle fa-2x" style="color:#91c788;"></i>
+      </div>
+      </a>
+     
+  </nav>
+
+  <div class='container'>
+    {%block body_block%}
+    {%endblock%}
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

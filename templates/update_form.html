@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Update Food</title>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1 class="display-3" style="background-color:#000000;color:#FFFF99;">Update Food</h1>
+        <form method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class='w-50 table table-light' style="border-radius:10px;background-color:#FFFF99;">
+                {% for i in update_form %}
+                <tr>
+                    <th>{{i.label}}</th>
+                    <td>{{ i }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+        </form>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

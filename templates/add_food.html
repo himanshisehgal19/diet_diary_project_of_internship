@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Add Food Manually</title>
+</head>
+
+<body>
+    <style>
+        .container-fluid {
+            width: 50vw;
+            height: 100vh;
+            background-color: rgb(255, 255, 255);
+            margin-top: 0 !important;
+            padding-top: 0.7rem;
+        }
+
+        body {
+            background-size: cover;
+            background-color: rgb(255, 255, 255);
+            padding: 0 !important;
+        }
+
+        #title {
+            margin: 1rem auto 1.5rem auto;
+            color: rgb(69, 5, 117);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 500;
+            background: rgb(255, 255, 255);
+            width: fit-content;
+            padding: .3rem 1.5rem;
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+    </style>
+    <div class="container-fluid">
+        <h1 id="title">Add Food Manually</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% include 'messages.html' %}
+            <input name="mfgcode" type="text" placeholder="Manufacture Code">
+            <input name="foodid" type="text" placeholder="Food I.D.">
+            <input name="foodname" type="text" placeholder="Food Name">
+            <input name="description" type="text" placeholder="Description">
+            <input name="foodtype" type="text" placeholder="Food Type">
+            <input name="cal" type="text" placeholder="Calories">
+            <input name="fats" type="text" placeholder="Fats">
+            <input name="protein" type="text" placeholder="Protein">
+            <input name="carbs" type="text" placeholder="Carbohydrates">
+
+            <input name="img" type="url" placeholder="Image/Image URL">
+            <input name="recipe" type="url" placeholder="Recipe URL">
+            <input name="buy" type="url" placeholder="Purchasing URL">
+            <br>
+            <br>
+            
+            <button class="btn btn-outline-success" type="submit" formaction="getdata">Submit</button>
+            <button class="btn btn-outline-info" type="submit" formaction="upload_csv_">Back To Add Data Page</button>
+            <button class="btn btn-outline-dark" type="submit" formaction="base_table">Show Food Master Table</button>
+        </form>
+    </div>
+</body>
+
+</html>

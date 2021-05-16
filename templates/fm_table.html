@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Nutritional Values</title>
+</head>
+
+<body>
+   
+                <a style="width: 4rem;padding: 3rem;" href="{%url 'FoodIndex:home'%}">Home</a>
+              
+    
+    <div id="FoodMaster">
+        <p id="title">Food Master</p>
+        <p class="text-center">
+            <span><a href="addfood"><button class="btn btn-outline-info" type="submit" formaction="addfood">Add New
+                        Food</button></a>
+            </span>
+            <span><a href="upload_csv_"><button class="btn btn-outline-info" type="submit" formaction="upload_csv_">Add New CSV
+                        File</button></a>
+            </span>
+            <span><a href="delete_table"><button class="btn btn-outline-danger" type="submit"
+                formaction="delete_table">Delete Existing Table</button></a>
+            </span>
+        </p>
+    </div>
+    <div class="container-fluid">
+        <style>
+            .container-fluid {
+                background-color: rgb(255, 255, 255);
+                margin-top: 0 !important;
+                padding-top: 0.7rem;
+                width: fit-content !important;
+            }
+
+            body {
+                background-size: cover;
+                background-color: rgb(250, 250, 250);
+                padding: 0 !important;
+            }
+
+            #FoodMaster {
+                text-align: center;
+                font-size: 30px;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 0;
+                width: fit-content;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 1rem;
+            }
+
+            #title {
+                margin: 1rem auto 1.5rem auto;
+                color: rgb(69, 5, 117);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 500;
+                font-size: 40px;
+                background: rgb(247, 246, 248);
+                width: fit-content;
+                padding: .3rem 1.5rem;
+                border: 2px solid black;
+                border-radius: 12px;
+
+            }
+
+            .table {
+
+                border-style: solid !important;
+                border-color: midnightblue !important;
+                border-width: 2px !important;
+                border-radius: 5px;
+            }
+
+            th {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            td {
+                text-align: center;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+
+        <table id='table' class="table table-bordered">
+            <tr>
+                <th>Mfg. Code</th>
+                <th>Food ID</th>
+                <th>Food Name</th>
+                <th>Description</th>
+                <th>Food Type</th>
+                <th>Calories</th>
+                <th>Fats</th>
+                <th>Protein</th>
+                <th>Carbs</th>
+                <th>Image</th>
+                <th>Recipe</th>
+                <th>Buy</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in data %}
+            <tr class='table-row'>
+                <td class="editable">{{ i.mfg_code}}</td>
+                <td class="editable">{{ i.food_id }}</td>
+                <td class="editable">{{ i.food_name }}</td>
+                <td class="editable">{{ i.description }}</td>
+                <td class="editable">{{ i.food_type }}</td>
+                <td class="editable">{{ i.calories }}</td>
+                <td class="editable">{{ i.fats }}</td>
+                <td class="editable">{{ i.protein }}</td>
+                <td class="editable">{{ i.carbohydrates }}</td>
+                <td class="editable"><img src="{{ i.link_of_image}}" height="100px" width="100px"></img></td>
+                <td class="editable"><a target="_new" href="#">Recipe</a></td>
+                <td class="editable"><a target="_new" href="#">Buy</a></td>
+                <!--<td class="editable"><a target="_new" href="{{ i.link_of_recipie }}">Recipe</a></td>
+                <td class="editable"><a target="_new" href="{{ i.purchasing_link }}">Buy</a></td>-->
+                <td class="edit-button"><a href="update/{{i.food_id}}" class='btn btn-outline-dark btn-rounded my-0'
+                    id='{{i.food_id}}'>Edit</a></td>
+                        <td class="edit-button"><a href="delete/{{i.food_id}}" class="btn btn-outline-danger"
+                            id='{{i.food_id}}'>Delete</a>
+                    </td>
+            </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+    <script>
+
+        //var rows = [].slice.call(table, 0)
+
+        function getIndexOfRowClicked(e) {
+            var table = document.getElementById('table')
+            var rows = [].slice.call(table.querySelectorAll('.table-row'), 0)
+            return rows.indexOf(e.parentElement.parentElement)
+        }
+
+        function edit(e) {
+            var table = document.getElementById('table')
+            var rows = [].slice.call(table.querySelectorAll('.table-row'), 0)
+            var index = getIndexOfRowClicked(e)
+            console.log(index)
+            var rowClicked = rows[index]
+            rowClicked.contentEditable = 'true'
+
+        }
+
+        function deleted(e) {
+            var table = document.getElementById('table')
+            var rows = [].slice.call(table.querySelectorAll('.table-row'), 0)
+            var index = getIndexOfRowClicked(e)
+            table.deleteRow(index + 1)
+        }
+    </script>
+</body>
+
+</html>

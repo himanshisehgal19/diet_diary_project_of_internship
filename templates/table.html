@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+{% block body_block%}
+<script>
+    var dict ={}
+</script>
+<br>
+<hr>
+<p ><h1 class="text-center">CONSUMED ITEMS</h1></p>
+<hr>
+<br><br>
+{% if info %}
+<table class="table">
+    <tr>
+        <th scope="col">
+            Food Name
+        </th>
+        <th scope="col">
+            Calories
+        </th>
+        <th scope="col">
+            Quantity
+        </th>
+        <th scope="col">
+            Meal Type
+        </th>
+        <th scope="col">
+            Delete
+        </th>
+
+    </tr>
+  
+    {% for tb in info %}
+    
+    <tr>
+        <td>
+            {{tb.food_name}}
+        </td>
+        <td>
+            {{tb.calories}}
+        </td>
+        <td>
+            {{tb.quantity}}
+        </td>
+        <td>
+            {{tb.meal_type}}
+        </td>
+        <script>
+            dict["{{tb.id}}"] = "{{tb.food_name}}";
+        </script>
+        <td>
+            <button id = "{{tb.food_name}}" onclick="delete_Row1(this);" class="btn btn-primary">X</button>
+            
+        </td>
+    </tr>
+    
+   
+    {% endfor %}
+    
+</table>
+<a class="btn btn-primary" href="{% url 'home_app:save_table' %}">Confirm</a>
+{% else %}
+<div class="text-center">
+<p><h4>No items consumed!!<i class="far fa-frown-open x"></i></h4></p>
+<a href="{%url 'FoodIndex:home'%}">Go To Home</a>
+</div>
+{% endif %} 
+<script>
+    function delete_Row1(what)
+    {
+        var n = what.id;
+        document.location.href="{% url 'home_app:delete' 1234 %}".replace(/1234/, n.toString());
+    }
+</script>
+
+
+
+{% endblock %}
