@@ -1,4 +1,4 @@
-# diet_diary_project_of_internship
+# Diet_Diary_project_of_internship
 ### The main idea for this project was that each user can maintain his diet diary so as to analyze his/her diet. On the main page via an API all the food items that are present on the company's website will be displayed as shown below:
 ![image](https://user-images.githubusercontent.com/55012463/121366642-44e30b00-c957-11eb-90ad-0577cc55709c.png)
 
