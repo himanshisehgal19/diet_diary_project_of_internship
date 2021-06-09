@@ -32,11 +32,13 @@
 
 ![image](https://user-images.githubusercontent.com/55012463/121367183-b8851800-c957-11eb-8b0d-3d6d0cdbddba.png)
 
+
+![image](https://user-images.githubusercontent.com/55012463/121367224-c0dd5300-c957-11eb-9a69-a5f4e5eeb99c.png)
+
+
 # ANALYSIS
 
 #### An Api of getuserlogs is will be called here and a dataframe will be formed from this api and later this dataframe is used for the further analysis
-![image](https://user-images.githubusercontent.com/55012463/121367224-c0dd5300-c957-11eb-9a69-a5f4e5eeb99c.png)
-
 
 ![image](https://user-images.githubusercontent.com/55012463/121388656-46b5ca00-c969-11eb-8410-aed7c9462a25.png)
 
@@ -49,10 +51,14 @@
 
 ![image](https://user-images.githubusercontent.com/55012463/121388840-6f3dc400-c969-11eb-94a5-fe37ce43d30e.png)
 
+## An Analysis chart that can compare the purchasing and consumption  analysis
+![image](https://user-images.githubusercontent.com/55012463/121389016-972d2780-c969-11eb-831f-3ab9719a4aaa.png)
+
+## You can view your history for every food item that is consumed
+
 
 ![image](https://user-images.githubusercontent.com/55012463/121388906-7e247680-c969-11eb-93ea-42eab5036859.png)
 
 
-![image](https://user-images.githubusercontent.com/55012463/121389016-972d2780-c969-11eb-831f-3ab9719a4aaa.png)
 
 
