@@ -1,10 +1,12 @@
 # diet_diary_project_of_internship
+![image](https://user-images.githubusercontent.com/55012463/121366642-44e30b00-c957-11eb-90ad-0577cc55709c.png)
 
-![image](https://user-images.githubusercontent.com/55012463/121365954-b4a4c600-c956-11eb-9f58-794e4c80d2ab.png)
+![image](https://user-images.githubusercontent.com/55012463/121366696-4e6c7300-c957-11eb-8724-ad3aa825df0f.png)
 
-![image](https://user-images.githubusercontent.com/55012463/121366058-ca19f000-c956-11eb-8a45-299e4183d1fe.png)
+![image](https://user-images.githubusercontent.com/55012463/121366912-7cea4e00-c957-11eb-8252-e49fdd0bfd14.png)
 
-![image](https://user-images.githubusercontent.com/55012463/121366478-25e47900-c957-11eb-87b4-e124196415d4.png)
+![image](https://user-images.githubusercontent.com/55012463/121366958-84a9f280-c957-11eb-9763-aa68d8f20c7b.png)
 
 
-![image](https://user-images.githubusercontent.com/55012463/121366421-1b29e400-c957-11eb-9445-db80814e24c3.png)
+![image](https://user-images.githubusercontent.com/55012463/121366784-617f4300-c957-11eb-8205-a4c432fdc06f.png)
+
