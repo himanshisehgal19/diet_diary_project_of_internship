@@ -7,7 +7,7 @@
 ![image](https://user-images.githubusercontent.com/55012463/121366696-4e6c7300-c957-11eb-8724-ad3aa825df0f.png)
 
 
- # Here as for example the user selects the shrikhand and consumes 1 unit After clicking on this consume button an api of getfood is called and it will directly send the details to transaction table
+### Here as for example the user selects the shrikhand and consumes 1 unit After clicking on this consume button an api of getfood is called and it will directly send the details to transaction table
 
 ![image](https://user-images.githubusercontent.com/55012463/121366912-7cea4e00-c957-11eb-8252-e49fdd0bfd14.png)
 
