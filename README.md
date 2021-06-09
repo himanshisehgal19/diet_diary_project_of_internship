@@ -50,6 +50,11 @@
 
 
 ![image](https://user-images.githubusercontent.com/55012463/121388840-6f3dc400-c969-11eb-94a5-fe37ce43d30e.png)
+## Nutrition Analysis
+![image](https://user-images.githubusercontent.com/55012463/121392313-e32d9b80-c96c-11eb-87a9-771a131541b5.png)
+## Graph of carbohydrates consumed in last 5 days from 26-05-2021
+![image](https://user-images.githubusercontent.com/55012463/121392272-dc9f2400-c96c-11eb-8a68-1bd0a0ee09df.png)
+
 
 ## An Analysis chart that can compare the purchasing and consumption  analysis
 ![image](https://user-images.githubusercontent.com/55012463/121389016-972d2780-c969-11eb-831f-3ab9719a4aaa.png)
